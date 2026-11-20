@@ -1,0 +1,21 @@
+<div class="day-view">
+  <div class="hour-grid">
+    @for (label of hours; track label) {
+      <div class="hour-row">
+        <span class="hour-row__label">{{ label }}</span>
+        <div class="hour-row__line"></div>
+      </div>
+    }
+  </div>
+  <div class="events-layer">
+    @for (event of positionedEvents(); track $index) {
+      <div
+        class="event"
+        [style.top.%]="event.top"
+        [style.height.%]="event.height"
+        [style.left.%]="event.left"
+        [style.width.%]="event.width"
+      >{{ eventLabel(event) }}</div>
+    }
+  </div>
+</div>
